@@ -1,3 +1,10 @@
+/* 
+  Augmego landing page
+  Intentional simplicity.
+  No frameworks.
+  No dark patterns.
+*/
+
 :root {
   color-scheme: light;
   --bg: #f6f1e7;
@@ -121,7 +128,7 @@ h1 {
 .btn.primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--accent-contrast);
+  color: #fff;
 }
 
 .btn.ghost {
@@ -172,22 +179,105 @@ h1 {
   font-weight: 600;
 }
 
-@media (max-width: 600px) {
-  .hero {
-    padding: 32px 24px;
+.hero {
+  animation: fadeUp 500ms ease-out both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* -----------------------------
+   Mobile refinements
+------------------------------ */
+
+@media (max-width: 720px) {
+  .page {
+    gap: 48px;
   }
 
   .site-header {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    text-align: center;
   }
 
-  .nav {
-    flex-wrap: wrap;
+  .brand {
     justify-content: center;
+  }
+
+  /* Mobile: hide primary navigation intentionally.
+   Landing page is CTA-focused, not browse-focused. */
+  .nav {
+    display: none; /* hide nav on mobile */
   }
 
   .header-actions {
+    width: 100%;
     justify-content: center;
+  }
+
+  .header-actions .btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 32px 20px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+    line-height: 1.15;
+    max-width: 14ch; /* prevents awkward wraps */
+  }
+  
+  .section p,
+  .subhead {
+    max-width: 60ch;
+  }
+
+
+  .subhead {
+    font-size: 1rem;
+    max-width: 40ch;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section {
+    padding: 24px 20px;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
   }
 }
