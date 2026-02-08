@@ -4,6 +4,7 @@
 // ------------------------------------------------------------
 
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+import { ConvexGeometry } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/geometries/ConvexGeometry.js";
 
 // ------------------------------------------------------------
 // Scene setup
@@ -69,9 +70,16 @@ const indices = [
 ];
 
 // Geometry
-const geometry = new THREE.BufferGeometry();
-geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
-geometry.setIndex(indices);
+const points = [];
+for (let i = 0; i < vertices.length; i += 3) {
+  points.push(new THREE.Vector3(
+    vertices[i],
+    vertices[i + 1],
+    vertices[i + 2]
+  ));
+}
+
+const geometry = new ConvexGeometry(points);
 geometry.computeVertexNormals();
 
 // ------------------------------------------------------------
