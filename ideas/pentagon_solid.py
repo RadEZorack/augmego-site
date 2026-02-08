@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+from mpl_toolkits.mplot3d.art3d import Line3DCollection, Poly3DCollection
 
 # Golden ratio
 phi = (1 + 5 ** 0.5) / 2
@@ -64,24 +64,42 @@ for face in faces:
         triangles.append([a, b, center])
 
 # Plot
-fig = plt.figure(figsize=(8, 8))
+fig = plt.figure(figsize=(9, 9))
 ax = fig.add_subplot(111, projection='3d')
 
-mesh = Poly3DCollection(
+# --- TRIANGLES (implementation layer) ---
+tri_mesh = Poly3DCollection(
     triangles,
     facecolor="lightblue",
     edgecolor="black",
-    linewidth=0.6,
-    alpha=0.9
+    linewidth=0.4,
+    alpha=0.6
+)
+ax.add_collection3d(tri_mesh)
+
+# --- PENTAGON OUTLINES (semantic layer, robust) ---
+pentagon_edges = []
+
+for face in faces:
+    pts = verts[face]
+    for i in range(len(pts)):
+        a = pts[i]
+        b = pts[(i + 1) % len(pts)]
+        pentagon_edges.append([a, b])
+
+pent_lines = Line3DCollection(
+    pentagon_edges,
+    colors="darkblue",
+    linewidths=2.2
 )
 
-ax.add_collection3d(mesh)
+ax.add_collection3d(pent_lines)
 
+# View settings
 ax.set_box_aspect([1, 1, 1])
 ax.axis("off")
 
-# Auto-scale
-all_pts = np.vstack(triangles)
+all_pts = np.vstack(verts)
 ax.auto_scale_xyz(all_pts[:,0], all_pts[:,1], all_pts[:,2])
 
 plt.show()
