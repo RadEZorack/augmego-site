@@ -9,15 +9,7 @@
       content="Augmego is a modern alternative to traditional video calls—designed for real presence, clarity, and meaningful interaction."
     />
     <link rel="icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
-        }
-      }
-    </script>
-    <script type="module" src="./scripts/truncated-octahedron-voxel.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </head>
   <body>
     <main class="page">
@@ -30,16 +22,18 @@
             width="140"
             height="40"
           />
+          AUGMEGO
         </div>
         <nav class="nav">
-          <a href="#learn">Why Augmego</a>
+          <a class="btn primary" href="https://app.augmego.ca">Start the Application</a>
+          <!-- <a href="#learn">Why Augmego</a>
           <a href="#pricing">Pricing</a>
-          <a href="#teams">For teams</a>
+          <a href="#teams">For teams</a> -->
         </nav>
       </header>
 
       <header class="hero">
-        <p class="eyebrow">Augmego</p>
+        <!-- <p class="eyebrow">Augmego</p> -->
         <h1>Meet with presence — not just faces.</h1>
         <p class="subhead">
           Augmego is a modern communication platform built for professionals who
@@ -47,8 +41,9 @@
           or forgettable.
         </p>
         <div class="actions">
-          <a class="btn primary" href="#contact">Request early access</a>
-          <a class="btn" href="#learn">Why this is different</a>
+          <a class="btn primary" href="https://app.augmego.ca">Start the Application</a>
+          <!-- <a class="btn" href="#contact">Request early access</a>
+          <a class="btn" href="#learn">Why this is different</a> -->
         </div>
       </header>
 
@@ -64,6 +59,9 @@
           Designed for real identities, professional environments, and
           thoughtful collaboration — not noise.
         </p>
+        <div class="actions">
+          <a class="btn primary" href="https://app.augmego.ca">Start the Application</a>
+        </div>
       </section>
 
       <section id="pricing" class="section">
@@ -72,6 +70,9 @@
           Start for free. Upgrade once if you want more capability — no
           subscriptions, no recurring pressure.
         </p>
+        <div class="actions">
+          <a class="btn primary" href="https://app.augmego.ca">Start the Application</a>
+        </div>
       </section>
 
       <section id="contact" class="section">
@@ -80,7 +81,10 @@
           Augmego is launching in stages. Join the early list to get updates and
           access as features roll out.
         </p>
-        <form class="form" action="#" method="post">
+        <div class="actions">
+          <a class="btn primary" href="https://app.augmego.ca">Start the Application</a>
+        </div>
+        <!-- <form class="form" action="#" method="post">
           <input
             type="email"
             name="email"
@@ -88,7 +92,7 @@
             required
           />
           <button type="submit">Join</button>
-        </form>
+        </form> -->
       </section>
     </main>
   </body>

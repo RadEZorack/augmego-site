@@ -3,15 +3,15 @@
 // Drop-in landing page visual
 // ------------------------------------------------------------
 
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
-import { ConvexGeometry } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/geometries/ConvexGeometry.js";
+import * as THREE from "three";
+import { ConvexGeometry } from "three/examples/jsm/geometries/ConvexGeometry.js";
 
 // ------------------------------------------------------------
 // Scene setup
 // ------------------------------------------------------------
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x0e1116);
+scene.background = null;
 
 const camera = new THREE.PerspectiveCamera(
   60,
@@ -22,10 +22,12 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(12, 12, 12);
 camera.lookAt(0, 0, 0);
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
-document.body.style.margin = "0";
+renderer.setClearColor(0x000000, 0);
+renderer.domElement.className = "bg-canvas";
+renderer.domElement.setAttribute("aria-hidden", "true");
 document.body.appendChild(renderer.domElement);
 
 // ------------------------------------------------------------

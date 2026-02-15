@@ -1,13 +1,18 @@
-# Augmego Landing Page
+# Augmego Landing Page (Vite)
 
-Static landing page scaffold.
+Static landing page powered by Node + Vite.
+
+## Scripts
+- `npm install`
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
 
 ## Structure
 - `index.html`
-- `styles.css`
-- `assets/`
-- `favicon.ico`
-- `robots.txt`
-
-## Usage
-Open `index.html` in a browser or serve with any static file server.
+- `src/main.js`
+- `src/styles.css`
+- `src/scripts/truncated-octahedron-voxel.js`
+- `public/assets/logo.png`
+- `public/favicon.ico`
+- `public/robots.txt`
